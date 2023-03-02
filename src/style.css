@@ -6,8 +6,6 @@
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
-}
-.faq-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +19,7 @@ body {
   flex-direction: column;
 }
 .faq-heading {
+  cursor: pointer;
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
@@ -46,13 +45,15 @@ body {
 .faq-answer {
   padding: 30px 15px;
 }
-.pasive{
+.passive{
   display: none;
 }
 .buttons {
   cursor: pointer;
   display: flex;
   justify-content: center;
+}
+button{
   width: 2rem;
   height: 2rem;
   font-size: 24px;
