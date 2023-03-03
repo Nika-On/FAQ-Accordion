@@ -10,6 +10,7 @@ faqHeadings.forEach((faqHeading, index) => {
     let faqAnswer = faqHeading.nextElementSibling.classList;
     // Expanding each faq-answer by adding "passive" class when faq-heading is clicked and closing faq-answer by removing "passive" class if same faq-heading is clicked again.
     if (faqAnswer.contains("passive")) {
+      addPassive();
       faqAnswer.remove("passive");
       expandSigns[index].classList.add("passive");
       closeSigns[index].classList.remove("passive");
@@ -18,16 +19,13 @@ faqHeadings.forEach((faqHeading, index) => {
       expandSigns[index].classList.remove("passive");
       closeSigns[index].classList.add("passive");
     }
-    // Loop through all faqAnswer elements and add the "passive" class if they are already expanded.
-    faqAnswers.forEach((otherFaqAnswer, otherIndex) => {
-      if (
-        otherIndex !== index &&
-        !otherFaqAnswer.classList.contains("passive")
-      ) {
-        otherFaqAnswer.classList.add("passive");
-        closeSigns[otherIndex].classList.add("passive");
-        expandSigns[otherIndex].classList.remove("passive");
-      }
-    });
   });
 });
+function addPassive() {
+  faqHeadings.forEach((faqHeading,index) => {
+    let faqAnswer = faqHeading.nextElementSibling.classList;
+    faqAnswer.add("passive");
+    expandSigns[index].classList.remove("passive");
+    closeSigns[index].classList.add("passive");
+  });
+}
